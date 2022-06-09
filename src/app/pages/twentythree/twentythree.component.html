@@ -1,19 +1,24 @@
 <div class="flex flex-row h-screen" style="background-color: #f5f5f7;">
     <!-- sidebar -->
-    <div class="basis-1/6 bg-cyan-600">
+    <div class="basis-1/6 bg-cyan-700">
         <app-sidebar class=""></app-sidebar>
     </div>
 
 
-    <div class="grow bg-purple-400 flex-col">
+    <div class="grow flex-col">
         <!-- navbar -->
-        <nav class="bg-amber-400 h-14">
+        <nav class="bg-gradient-to-l to-cyan-700 from-cyan-600 drop-shadow-md">
             <app-navbar></app-navbar>
         </nav>
 
 
         <!-- search area -->
-        <div class="bg-teal-400 h-11">search bar</div>
+        <div class="mx-6 my-3 flex flex-row justify-between">
+            <p class="font-bold text-cyan-900">Network CEM</p>
+            <div>
+                <p>Search by:</p>
+            </div>
+        </div>
 
 
         <div class="flex flex-row">
