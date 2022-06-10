@@ -8,7 +8,6 @@ export class ToggleService {
 
   toggleDropdown() {
     this.showDropdown = !this.showDropdown;
-    console.log(this.showDropdown);
   }
 
   isDropdownShown() {
