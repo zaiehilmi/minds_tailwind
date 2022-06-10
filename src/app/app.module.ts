@@ -8,6 +8,9 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { SidebarbtnComponent } from './components/sidebarbtn/sidebarbtn.component';
 import { SearchAreaComponent } from './components/search-area/search-area.component';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+
+import { PagesModule } from './pages/pages.module';
 
 @NgModule({
   declarations: [
@@ -20,7 +23,10 @@ import { SearchAreaComponent } from './components/search-area/search-area.compon
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    NoopAnimationsModule,
+
+    PagesModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
