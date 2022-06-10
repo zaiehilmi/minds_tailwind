@@ -1,15 +1,20 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+
+import { ToggleService } from 'src/app/toggle.service';
 
 @Component({
   selector: 'app-twentythree',
   templateUrl: './twentythree.component.html',
-  styleUrls: ['./twentythree.component.css']
+  styleUrls: ['./twentythree.component.css'],
+  providers: [ToggleService],
 })
-export class TwentythreeComponent implements OnInit {
+export class TwentythreeComponent {
 
-  constructor() { }
+  constructor(public dropdown: ToggleService) { }
 
-  ngOnInit(): void {
+  openDropdown($event: Event) {
+    $event.preventDefault();
+
+    this.dropdown.toggleDropdown();
   }
-
 }
