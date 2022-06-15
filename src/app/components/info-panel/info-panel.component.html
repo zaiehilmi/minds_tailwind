@@ -1,0 +1,63 @@
+<div class="flex flex-col gap-3">
+    <!-- site information -->
+    <div class="flex-auto bg-white py-3 px-4 rounded-md shadow-md">
+        <div class="flex flex-col gap-3">
+            <p class="text-cyan-900">Site Information</p>
+            <table>
+                <tbody class="text-cyan-900 text-xs font-medium">
+                    <tr>
+                        <td>ID</td>
+                        <td class="font-bold pl-2">{{siteinfo.id}}</td>
+                    </tr>
+                    <tr>
+                        <td>Type</td>
+                        <td class="font-bold pl-2">{{siteinfo.type}}</td>
+                    </tr>
+                    <tr>
+                        <td>Services</td>
+                        <td class="font-bold pl-2">{{siteinfo.service}}</td>
+                    </tr>
+                    <tr>
+                        <td class="align-top">Address</td>
+                        <td class="font-bold pl-2">{{siteinfo.address}}</td>
+                    </tr>
+                </tbody>
+            </table>
+            <button class="bg-yellow-400 text-cyan-900 rounded-md h-8" type="button">View Details</button>
+        </div>
+    </div>
+
+    <!-- oss kpi reporting -->
+    <div class="flex-auto bg-white py-3 px-4 rounded-md shadow-md">
+        <div class="flex flex-col gap-3">
+            <p class="text-cyan-900">OSS KPIs Reporting/Indicator</p>
+            <button class="bg-yellow-400 text-cyan-900 rounded-md h-8" type="button">KPI</button>
+        </div>
+    </div>
+
+
+    <!-- more button -->
+    <div class="flex-auto bg-white px-4 py-2 rounded-md shadow-md">
+        <div class="flex flex-col gap-1">
+            <button class="bg-yellow-400 text-cyan-900 rounded-md h-8" type="button">CTT & NTT</button>
+            <button class="bg-yellow-400 text-cyan-900 rounded-md h-8" type="button">Maintenance</button>
+            <button class="bg-yellow-400 text-cyan-900 rounded-md h-8" type="button">Congested Cell</button>
+        </div>
+
+    </div>
+
+
+    <!-- network status -->
+    <div class="flex-auto bg-white px-4 py-3 rounded-md shadow-md">
+        <div class="flex flex-col gap-3">
+            <p class="text-cyan-900">Network Status</p>
+            <div class="outline-1 outline h-10">
+                letak signal strength nanti 5g 4g...
+            </div>
+            <p class="text-xs text-cyan-900 leading-tight">{{netStatusComment}}</p>
+            <p class="text-xs text-cyan-900 leading-tight">Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                Aut, quibusdam voluptatibus illo vel nihil similique officiis.</p>
+        </div>
+    </div>
+
+</div>

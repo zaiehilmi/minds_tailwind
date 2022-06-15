@@ -11,6 +11,7 @@ import { SearchAreaComponent } from './components/search-area/search-area.compon
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 import { PagesModule } from './pages/pages.module';
+import { InfoPanelComponent } from './components/info-panel/info-panel.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { PagesModule } from './pages/pages.module';
     SidebarComponent,
     NavbarComponent,
     SidebarbtnComponent,
-    SearchAreaComponent
+    SearchAreaComponent,
+    InfoPanelComponent
   ],
   imports: [
     BrowserModule,
