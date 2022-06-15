@@ -19,7 +19,7 @@
 
 
         <div class="flex flex-row">
-            <div class="grow bg-orange-00 flex-col">
+            <div class="basis-9/12 grow bg-orange-00 flex-col">
                 <!-- mini header -->
                 <div class="ml-6 mr-3 my-3 flex flex-row justify-between">
                     <!-- header -->
@@ -38,8 +38,9 @@
                                                 transition duration-150 ease-in-out whitespace-nowrap">
                                         Lorem ipsum dolor sit <i class="bi bi-chevron-down ml-4"></i>
                                     </button>
-                                    <ul [ngClass]="{ hidden: !dropdown.isDropdownShown() }" class="dropdown-menu min-w-maxn absolute bg-white text-base z-50 py-2 mt-1 m-0
-                                    float-left list-none text-left rounded-lg shadow-lg bg-clip-padding border-none">
+                                    <ul [ngClass]="{ hidden: !dropdown.isDropdownShown() }"
+                                        class="dropdown-menu min-w-maxn absolute bg-white text-base py-2 mt-1 m-0
+                                    float-left list-none text-left rounded-lg shadow-lg bg-clip-padding border-none z-10">
                                         <li><a href="#"
                                                 class="dropdown-item text-sm py-1 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100">
                                                 Lorem ipsum dolor sit amet.
@@ -64,12 +65,14 @@
 
 
                 <!-- map -->
-                <div class="flex flex-row grow bg-orange-400 ">map</div>
+                <div id="map" class="max-w-full ml-6 mr-3 shadow-lg rounded-md z-0"></div>
 
 
             </div>
             <!-- info panel -->
-            <div class="basis-3/12 bg-zinc-500">info panel</div>
+            <div class="basis-3/12 mr-6 mt-3">
+                <app-info-panel></app-info-panel>
+            </div>
 
 
         </div>
