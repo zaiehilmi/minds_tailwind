@@ -16,6 +16,8 @@ export class InfoPanelComponent implements OnInit {
 
   netStatusComment: string = 'Our network is performing as expected at your current location. If we are doing work on the phone masts near you we\'ll tell you about it here';
 
+  signalStrength: string = '5G';
+
   constructor() { }
 
   ngOnInit(): void {
