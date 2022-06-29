@@ -12,6 +12,7 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 import { PagesModule } from './pages/pages.module';
 import { InfoPanelComponent } from './components/info-panel/info-panel.component';
+import { MapComponent } from './components/map/map.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { InfoPanelComponent } from './components/info-panel/info-panel.component
     NavbarComponent,
     SidebarbtnComponent,
     SearchAreaComponent,
-    InfoPanelComponent
+    InfoPanelComponent,
+    MapComponent
   ],
   imports: [
     BrowserModule,

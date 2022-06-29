@@ -1,0 +1,15 @@
+#map {
+    height: 77vmin;
+    max-width: 100%;
+    margin-left: 1.5rem;
+    margin-right: 0.75rem;
+    border-radius: 0.375rem;
+    /* z-index: 0; */
+}
+
+.m-fit {
+    margin-left: 770px;
+    margin-right: 1.5rem;
+    margin-top: 1rem;
+    margin-bottom: 50rem;
+}
