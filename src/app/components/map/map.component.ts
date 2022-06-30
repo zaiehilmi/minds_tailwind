@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ReadApiService } from 'src/services/read-api.service';
+import { MapData } from './map';
 
 declare const L: any;
 
@@ -8,15 +10,26 @@ declare const L: any;
   styleUrls: ['./map.component.css']
 })
 export class MapComponent implements OnInit {
+  data4g: MapData[] = [];
+  errorMsg!: string;
 
-  constructor() { }
+  constructor(private readApiService: ReadApiService) { }
 
   ngOnInit() {
+    // read api data
+    this.readApiService.get4gMapData()
+      .subscribe({
+        next: async (data: MapData[]) => { this.data4g = data; },
+        error: (err: string) => { this.errorMsg = err; }
+      });
+
+    // get current position
     if (!navigator.geolocation) {
       console.log('location is not supported');
     }
-    navigator.geolocation.getCurrentPosition(position => {
-      const coords = position.coords;
+
+    navigator.geolocation.getCurrentPosition(async position => {
+      let coords = position.coords;
 
       let map = L.map('map').setView([coords.latitude, coords.longitude], 13);
       console.log(map)
@@ -25,8 +38,10 @@ export class MapComponent implements OnInit {
         attribution: '© OpenStreetMap'
       }).addTo(map);
 
-      let marker = L.marker([coords.latitude, coords.longitude]).addTo(map);
-      marker.bindPopup('<b>You are here</b><br>lat: ' + coords.latitude + '<br>lng: ' + coords.longitude).openPopup();
+      setTimeout(() => {
+        this.mappingMap4g(this.data4g, map);
+      }, 1000);
+
     });
 
     this.watchPosition();
@@ -43,4 +58,16 @@ export class MapComponent implements OnInit {
       maximumAge: 0,
     });
   }
+
+  mappingMap4g(data: MapData[], map: any) {
+    data.forEach(item => {
+      L.circle([item.latitude, item.longitude], {
+        color: '#20B2AA',
+        stroke: false,
+        radius: 800,
+        fillOpacity: 0.6,
+      }).addTo(map);
+    });
+  }
+
 }
