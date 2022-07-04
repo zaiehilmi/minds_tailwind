@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { ToggleService } from 'src/services/toggle.service';
+import { ToggleService } from 'src/app/services/toggle.service';
 
 @Component({
   selector: 'app-twentythree',

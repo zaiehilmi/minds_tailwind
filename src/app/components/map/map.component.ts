@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ReadApiService } from 'src/services/read-api.service';
+import { ReadApiService } from 'src/app/services/read-api.service';
 import { MapData } from './map';
 
 declare const L: any;
