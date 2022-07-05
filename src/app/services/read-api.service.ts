@@ -9,10 +9,15 @@ import { MapData } from 'src/app/components/map/map';
 })
 export class ReadApiService {
   map4g_endpoint = 'https://map-api-minds.apps.ocp.tmrnd.com.my/api/minds/evMap_4G';
+  map5g_endpoint = 'https://map-api-minds.apps.ocp.tmrnd.com.my/api/minds/evMap_5G';
 
   constructor(private httpClient: HttpClient) { }
 
   public get4gMapData(): Observable<MapData[]> {
     return this.httpClient.get<MapData[]>(this.map4g_endpoint);
+  }
+
+  public get5gMapData(): Observable<MapData[]> {
+    return this.httpClient.get<MapData[]>(this.map5g_endpoint);
   }
 }

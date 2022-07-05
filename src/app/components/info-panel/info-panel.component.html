@@ -19,7 +19,7 @@
                     </tr>
                     <tr>
                         <td class="align-top">Address</td>
-                        <td class="font-bold pl-2">{{siteinfo.address}}</td>
+                        <td class="font-bold pl-2 w-full">{{siteinfo.address}}</td>
                     </tr>
                 </tbody>
             </table>
@@ -63,7 +63,9 @@
                     [ngStyle]="{'color': signalStrength === '2G' || signalStrength === '3G' || signalStrength === '4G' || signalStrength === '5G'  ? '#0ec7d4' : '#bebebe'}">
                     2G</h1>
             </div>
-            <p class="text-xs text-cyan-900 leading-tight">{{netStatusComment}}</p>
+            <div class="h-7">
+                <p class="text-base font-semibold text-cyan-600 leading-tight">{{netStatusComment}}</p>
+            </div>
             <p class="text-xs text-cyan-900 leading-tight">Lorem ipsum dolor sit amet consectetur, adipisicing elit.
                 Aut, quibusdam voluptatibus illo vel nihil similique officiis.</p>
         </div>
