@@ -38,7 +38,7 @@
                                                 transition duration-150 ease-in-out whitespace-nowrap">
                                         Lorem ipsum dolor sit <i class="bi bi-chevron-down ml-4"></i>
                                     </button>
-                                    <ul [ngClass]="{ hidden: !dropdown.isDropdownShown() }"
+                                    <ul [ngClass]="{ hidden: !dropdownService.isToggleShown('dropdown') }"
                                         class="dropdown-menu min-w-maxn absolute bg-white text-base py-2 mt-1 m-0
                                     float-left list-none text-left rounded-lg shadow-lg bg-clip-padding border-none z-40">
                                         <li><a href="#"
