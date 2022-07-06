@@ -10,13 +10,16 @@ import { ToggleService } from 'src/app/services/toggle.service';
 })
 export class TwentythreeComponent {
 
-  constructor(public dropdown: ToggleService) { }
+  constructor(public dropdownService: ToggleService) { }
 
   openDropdown($event: Event) {
     $event.preventDefault();
 
-    this.dropdown.toggleDropdown();
+    this.dropdownService.toggleComponent('dropdown');
   }
 
+  ngOnInit() {
+    this.dropdownService.register('dropdown');
+  }
 
 }
