@@ -1,6 +1,8 @@
 import { Component, OnInit, Output } from '@angular/core';
+
 import { GetInfoService } from 'src/app/services/get-info.service';
 import { ReadApiService } from 'src/app/services/read-api.service';
+import { ToggleService } from 'src/app/services/toggle.service';
 import { MapData } from './map';
 
 declare const L: any;
@@ -15,12 +17,16 @@ export class MapComponent implements OnInit {
   data5g: MapData[] = [];
   errorMsg!: string;
 
+  filter_site4g: boolean = false;
+
   constructor(
     private readApiService: ReadApiService,
     private setinfoService: GetInfoService,
+    public toggleService: ToggleService,
   ) { }
 
   ngOnInit() {
+    this.toggleService.register('site_filter');
     // read api data
     this.readApiService.get4gMapData()
       .subscribe({
@@ -57,6 +63,11 @@ export class MapComponent implements OnInit {
     });
 
     this.watchPosition();
+  }
+
+  openSiteFilter($event: Event) {
+    $event.preventDefault();
+    this.toggleService.toggleComponent('site_filter');
   }
 
   watchPosition() {

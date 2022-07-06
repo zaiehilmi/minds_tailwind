@@ -3,14 +3,14 @@
     <div class="absolute inset-0 flex justify-end items-start z-20 m-fit">
         <div class="grid grid-flow-row auto-rows-max">
             <div>
-                <button
+                <button (click)="openSiteFilter($event)"
                     class="bg-cyan-800 rounded-md glass-effect w-40 py-1 px-2 flex place-content-between items-center">
                     <p class="text-white text-sm">Site Filters </p><i class="bi bi-chevron-down text-white"></i>
                 </button>
-                <div class="bg-white glass-effect py-1 px-2 text-xs">
-                    <button>
-                        laal
-                    </button>
+                <div [ngClass]="{ hidden: !toggleService.isToggleShown('site_filter')}"
+                    class="bg-white glass-effect py-1 px-2 text-xs">
+                    <input type="checkbox" name="site4g" [(ngModel)]="filter_site4g" class="accent-blue-600">
+                    <label for="site4g">Site 4G {{ filter_site4g }}</label>
                 </div>
             </div>
 
