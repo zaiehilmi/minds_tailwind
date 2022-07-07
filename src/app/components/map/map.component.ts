@@ -16,8 +16,7 @@ export class MapComponent implements OnInit {
   data4g: MapData[] = [];
   data5g: MapData[] = [];
   errorMsg!: string;
-
-  filter_site4g: boolean = false;
+  map: any;
 
   constructor(
     private readApiService: ReadApiService,
@@ -48,17 +47,12 @@ export class MapComponent implements OnInit {
     navigator.geolocation.getCurrentPosition(async position => {
       let coords = position.coords;
 
-      let map = L.map('map').setView([coords.latitude, coords.longitude], 13);
-      console.log(map)
+      this.map = L.map('map').setView([coords.latitude, coords.longitude], 13);
+
       L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         maxZoom: 19,
         attribution: '© OpenStreetMap'
-      }).addTo(map);
-
-      setTimeout(() => {
-        this.mappingMap4g(this.data4g, map);
-        this.mappingMap5g(this.data5g, map)
-      }, 1000);
+      }).addTo(this.map);
 
     });
 
@@ -69,6 +63,7 @@ export class MapComponent implements OnInit {
     $event.preventDefault();
     this.toggleService.toggleComponent('site_filter');
   }
+
 
   watchPosition() {
     let desLat = 0;
@@ -82,34 +77,40 @@ export class MapComponent implements OnInit {
     });
   }
 
-  mappingMap4g(data: MapData[], map: any) {
-    data.forEach(item => {
-      L.circle([item.latitude, item.longitude], {
-        color: '#20B2AA',
-        stroke: false,
-        radius: 200,
-        fillOpacity: 0.7,
-      }).addTo(map).on('click', () => {
-        this.setinfoService.setSiteId(item.site_id);
-        this.setinfoService.setTypeMap(item.type_map);
-        this.setinfoService.setStatus(item.status);
-        this.setinfoService.setSignal('4G');
-      });
-    });
+  group4g = L.featureGroup();
+  group5g = L.featureGroup();
+
+  switchFilter(v: boolean, type: string) {
+    if (v) {
+      setTimeout(() => {
+        if (type === '4g') {
+          this.mappingMap(this.data4g, this.group4g, '#20B2AA', '4G');
+          this.map.addLayer(this.group4g);
+        }
+        if (type === '5g') {
+          this.mappingMap(this.data5g, this.group5g, '#ff3535', '5G');
+          this.map.addLayer(this.group5g);
+        }
+      }, 1000);
+
+    } else {
+      if (type === '4g') this.map.removeLayer(this.group4g);
+      if (type === '5g') this.map.removeLayer(this.group5g);
+    }
   }
 
-  mappingMap5g(data: MapData[], map: any) {
+  mappingMap(data: MapData[], group: any, HEXcolor: string, label: string) {
     data.forEach(item => {
       L.circle([item.latitude, item.longitude], {
-        color: '#ff3535',
+        color: HEXcolor,
         stroke: false,
         radius: 200,
         fillOpacity: 0.7,
-      }).addTo(map).on('click', () => {
+      }).addTo(group).on('click', () => {
         this.setinfoService.setSiteId(item.site_id);
         this.setinfoService.setTypeMap(item.type_map);
-        this.setinfoService.setStatus('Data is not provided');
-        this.setinfoService.setSignal('5G');
+        this.setinfoService.setStatus((item.status !== undefined) ? item.status : 'Data is not available')
+        this.setinfoService.setSignal(label);
       });
     });
   }

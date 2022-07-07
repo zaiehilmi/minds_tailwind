@@ -9,8 +9,18 @@
                 </button>
                 <div [ngClass]="{ hidden: !toggleService.isToggleShown('site_filter')}"
                     class="bg-white glass-effect py-1 px-2 text-xs">
-                    <input type="checkbox" name="site4g" [(ngModel)]="filter_site4g" class="accent-blue-600">
-                    <label for="site4g">Site 4G {{ filter_site4g }}</label>
+                    <div class="flex items-center">
+                        <input type="checkbox" name="site4g" #filter_site4g_cb
+                            (change)="switchFilter(filter_site4g_cb.checked, '4g')" class="accent-blue-400">
+                        <div class="p-1 bg-cyan-400 ml-1 rounded-sm"></div>
+                        <label for="site4g" class="ml-2">Site 4G</label>
+                    </div>
+                    <div class="flex items-center">
+                        <input type="checkbox" name="site5g" #filter_site5g_cb
+                            (change)="switchFilter(filter_site5g_cb.checked, '5g')" class="accent-blue-400">
+                        <div class="p-1 bg-red-400 ml-1 rounded-sm"></div>
+                        <label for="site5g" class="ml-2">Site 5G</label>
+                    </div>
                 </div>
             </div>
 
