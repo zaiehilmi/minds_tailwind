@@ -58,6 +58,13 @@ export class MapComponent implements OnInit {
 
     });
 
+    setTimeout(() => {
+      this.mappingMap(this.data4g, this.group4g, '#20B2AA', '4G');
+      this.mappingMap(this.data5g, this.group5g, '#ff3535', '5G');
+
+      console.log((this.data4g.length === 0) ? 'reload again' : 'map is ready');
+    }, 1000);
+
     this.watchPosition();
   }
 
@@ -85,17 +92,10 @@ export class MapComponent implements OnInit {
   group5g = L.featureGroup();
 
   switchFilter(v: boolean, type: string) {
+
     if (v) {
-      setTimeout(() => {
-        if (type === '4g') {
-          this.mappingMap(this.data4g, this.group4g, '#20B2AA', '4G');
-          this.map.addLayer(this.group4g);
-        }
-        if (type === '5g') {
-          this.mappingMap(this.data5g, this.group5g, '#ff3535', '5G');
-          this.map.addLayer(this.group5g);
-        }
-      }, 1000);
+      if (type === '4g') this.map.addLayer(this.group4g);
+      if (type === '5g') this.map.addLayer(this.group5g);
 
     } else {
       if (type === '4g') this.map.removeLayer(this.group4g);
