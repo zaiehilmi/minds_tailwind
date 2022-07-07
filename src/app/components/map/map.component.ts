@@ -18,11 +18,13 @@ export class MapComponent implements OnInit {
   errorMsg!: string;
   map: any;
 
+
   constructor(
     private readApiService: ReadApiService,
     private setinfoService: GetInfoService,
     public toggleService: ToggleService,
   ) { }
+
 
   ngOnInit() {
     this.toggleService.register('site_filter');
@@ -59,6 +61,7 @@ export class MapComponent implements OnInit {
     this.watchPosition();
   }
 
+
   openSiteFilter($event: Event) {
     $event.preventDefault();
     this.toggleService.toggleComponent('site_filter');
@@ -76,6 +79,7 @@ export class MapComponent implements OnInit {
       maximumAge: 0,
     });
   }
+
 
   group4g = L.featureGroup();
   group5g = L.featureGroup();
@@ -98,6 +102,7 @@ export class MapComponent implements OnInit {
       if (type === '5g') this.map.removeLayer(this.group5g);
     }
   }
+
 
   mappingMap(data: MapData[], group: any, HEXcolor: string, label: string) {
     data.forEach(item => {

@@ -10,7 +10,6 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { SidebarbtnComponent } from './components/sidebarbtn/sidebarbtn.component';
 import { SearchAreaComponent } from './components/search-area/search-area.component';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
-import { FormsModule } from '@angular/forms';
 
 import { PagesModule } from './pages/pages.module';
 import { InfoPanelComponent } from './components/info-panel/info-panel.component';
@@ -34,7 +33,6 @@ import { CommonModule } from '@angular/common';
     NoopAnimationsModule,
     HttpClientModule,
     CommonModule,
-    FormsModule,
 
     PagesModule,
   ],
