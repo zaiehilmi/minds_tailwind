@@ -5,10 +5,15 @@
             <div>
                 <button (click)="openSiteFilter($event)"
                     class="bg-cyan-800 rounded-md glass-effect w-40 py-1 px-2 flex place-content-between items-center">
-                    <p class="text-white text-sm">Site Filters </p><i class="bi bi-chevron-down text-white"></i>
+                    <p class="text-white text-sm">Site Filters
+                    </p>
+                    <div *ngIf="data4g.length === 0"
+                        class="spinner-grow inline-block w-5 h-5 bg-white rounded-full opacity-0 m-0.5">
+                    </div>
+                    <i *ngIf="data4g.length !== 0" class="bi bi-chevron-down text-white"></i>
                 </button>
                 <div [ngClass]="{ hidden: !toggleService.isToggleShown('site_filter')}"
-                    class="bg-white glass-effect py-1 px-2 text-xs">
+                    class="bg-white glass-effect py-1 px-2 text-xs rounded">
                     <div class="flex items-center">
                         <input type="checkbox" name="site4g" #filter_site4g_cb
                             (change)="switchFilter(filter_site4g_cb.checked, '4g')" class="accent-blue-400">
