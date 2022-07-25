@@ -1,0 +1,23 @@
+.sidebar-area {
+    flex-basis: 16.6667%;
+    background-color: rgb(14 116 144);
+}
+
+.vertical-rule {
+    border-left: 2px solid rgba(7, 74, 92, 0.589);
+    height: 24px
+}
+
+.text-tab:active {
+    font-weight: 700;
+    color: rgb(22 78 99);
+}
+
+.text-tab {
+    font-weight: 700;
+    color: rgba(58, 72, 77, 0.404);
+}
+
+.margin-area {
+    margin: 1.5rem 1.5rem 0.75rem 1.5rem;
+}

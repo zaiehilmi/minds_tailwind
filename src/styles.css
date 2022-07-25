@@ -10,3 +10,18 @@
 .glass-effect {
     @apply backdrop-blur-lg backdrop-filter bg-opacity-70;
 }
+
+.page-area {
+    min-height: 100vh;
+    background-color: #F2F2F2;
+}
+
+.sidebar-area {
+    flex-basis: 16.6667%;
+    background-color: rgb(14 116 144);
+}
+
+.main-area {
+    flex-grow: 1;
+    flex-direction: column;
+}
