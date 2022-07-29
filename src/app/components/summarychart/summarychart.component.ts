@@ -14,21 +14,25 @@ export class SummarychartComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void { }
 
   public graph = {
     data: [{
       x: ConfigGraph.list_month,
       y: this.totalSubs,
       type: 'bar',
-      // mode: 'lines+points',
+      text: this.totalSubs.map(String),
+      textposition: 'auto',
+      hoverinfo: 'none',
       name: 'Total Subscribers',
       marker: { color: ConfigGraph.colorBar.totalSubs },
     }, {
       x: ConfigGraph.list_month,
       y: this.totalCtt,
       type: 'bar',
+      text: this.totalCtt.map(String),
+      textposition: 'auto',
+      hoverinfo: 'none',
       name: 'Total CTT',
       marker: { color: ConfigGraph.colorBar.totalCTT },
     }],
@@ -36,6 +40,7 @@ export class SummarychartComponent implements OnInit {
     layout: {
       autosize: true,
       barmode: 'stack',
+
     },
 
     config: {
